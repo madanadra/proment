@@ -21,7 +21,9 @@ export default function FormUnauth({title, action, input}: Pick<Auth, 'title' | 
     const {pending} = useFormStatus()
 
     useEffect(() => {
-      pending && setNotification(false)
+      if (pending) {
+        setNotification(false)
+      } 
     }, [pending])
 
     return (
