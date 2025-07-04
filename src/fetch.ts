@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import prisma from "./prisma"
 
-export async function sign_up(_current: any, e: FormData) {
+export async function sign_up(_: unknown, e: FormData) {
     const username = e.get('username') as string
     const password = e.get('password') as string
     const passwordConfirmation = e.get('password-confirmation') as string
@@ -55,7 +55,7 @@ export async function sign_up(_current: any, e: FormData) {
     }
 }
 
-export async function log_in(_current: any, e: FormData) {
+export async function log_in(_: unknown, e: FormData) {
     const username = e.get('username') as string
     const password = e.get('password') as string
 
@@ -100,7 +100,7 @@ export async function log_in(_current: any, e: FormData) {
     }
 }
 
-export async function log_out(_current: any, _e: FormData) {
+export async function log_out(_: unknown, __: unknown) {
     try {
         const cookie = await cookies()
         const token = cookie.get('auth-token')?.value
@@ -215,7 +215,7 @@ export async function get_index() {
     }
 }
 
-export async function create_project(_current: any, e: FormData) {
+export async function create_project(_: unknown, e: FormData) {
     const name = e.get('name') as string
 
     if (!name) {
@@ -374,7 +374,7 @@ export async function get_detail(id: string) {
     }
 }
 
-export async function create_task(_current: any, e: FormData) {
+export async function create_task(_: unknown, e: FormData) {
     const id = e.get('id') as string
     const title = e.get('title') as string
     const description = e.get('description') as string
@@ -489,7 +489,7 @@ export async function get_user(value: string) {
     }
 }
 
-export async function update_status(_current: any, e: FormData) {
+export async function update_status(_: unknown, e: FormData) {
     const id = e.get('id') as string
     const status = e.get('status') as string
 

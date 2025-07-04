@@ -21,7 +21,9 @@ export default function CreateProject() {
     const {pending} = useFormStatus()
 
     useEffect(() => {
-      pending && setNotification(false)
+      if (pending) {
+        setNotification(false)
+      } 
     }, [pending])
   
     return (

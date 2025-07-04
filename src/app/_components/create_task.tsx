@@ -65,7 +65,9 @@ export default function CreateTask({id, isOwner}: {id: string, isOwner: boolean}
     const {pending} = useFormStatus()
 
     useEffect(() => {
-      pending && setNotification(false)
+      if (pending) {
+        setNotification(false)
+      } 
     }, [pending])
   
     return (
@@ -113,7 +115,7 @@ export default function CreateTask({id, isOwner}: {id: string, isOwner: boolean}
               <div ref={box} className={`${username && list ? '' : 'hidden'} absolute top-full mt-2 inset-x-0 rounded-sm bg-gray-50 border border-gray-300 shadow py-1`}>
                 {loading ? <div className='my-1 mx-auto w-5 border-2 aspect-square rounded-full border-gray-300 border-r-transparent animate-spin'/>
                 : error ? <h1 className="text-sm font-medium text-center my-1">{error}</h1>
-                : !user.length ? <h1 className="text-sm font-medium text-center my-1 text-gray-500">No results for "<span className="text-gray-900">{username}</span>"</h1>
+                : !user.length ? <h1 className="text-sm font-medium text-center my-1 text-gray-500">No results for &quot;<span className="text-gray-900">{username}</span>&quot;</h1>
                 : user.map(item => <h1 key={item.id} onClick={() => !assignee.some(data => data.id === item.id) && (setAssignee(prev => [...prev, item]), setList(false))} 
                 className={`${assignee.some(data => data.id === item.id) ? 'bg-gray-100 text-gray-500' : 'hover:bg-gray-100'} py-1 px-2 text-sm cursor-pointer`}>{item.username}</h1>)}
               </div>

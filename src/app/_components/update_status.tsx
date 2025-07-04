@@ -17,7 +17,9 @@ export default function UpdateStatus({id, isOwner, status}: {id: string, isOwner
     const toggle = useRef<HTMLDivElement>(null)
         
     useEffect(() => {
-        state && setNotification(true)
+        if (state) {
+            setNotification(true)
+        }
     }, [state])
 
     useEffect(() => {
@@ -45,8 +47,11 @@ export default function UpdateStatus({id, isOwner, status}: {id: string, isOwner
         const {pending} = useFormStatus()
 
         useEffect(() => {
-        pending && setNotification(false)
         setLoading(pending)
+
+        if (pending) {
+            setNotification(false)
+        } 
         }, [pending])
     
         return (<></>)
