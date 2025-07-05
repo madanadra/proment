@@ -38,16 +38,15 @@ export default function FormUnauth({title, action, input}: Pick<Auth, 'title' | 
 
   return (
     <form action={formAction} className="grid gap-y-4">
-      {process.env.NEXT_PUBLIC_BASE_URL+'/api/check?token='}
-        {input.map((item, i) =>
-            <div key={i} className="grid gap-y-2">
-                <label className="text-sm font-semibold">{item.label}</label>
-                <input type={item.type} name={item.name} required
-                className="p-2 text-sm rounded-sm bg-gray-50 border border-gray-300 focus:outline-2 focus:outline-offset-2 focus:outline-gray-950" />
-            </div>
-        )}
-        <Button />
-        {notification && state?.error && <Notification text={state.error} />}
+      {input.map((item, i) =>
+        <div key={i} className="grid gap-y-2">
+          <label className="text-sm font-semibold">{item.label}</label>
+          <input type={item.type} name={item.name} required
+            className="p-2 text-sm rounded-sm bg-gray-50 border border-gray-300 focus:outline-2 focus:outline-offset-2 focus:outline-gray-950" />
+        </div>
+      )}
+      <Button />
+      {notification && state?.error && <Notification text={state.error} />}
     </form>
   );
 }
