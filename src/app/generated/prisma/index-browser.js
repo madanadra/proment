@@ -4,20 +4,14 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
-const {
-  Decimal,
-  objectEnumValues,
-  makeStrictEnum,
-  Public,
-  getRuntime,
-  skip
-} = require('./runtime/index-browser.js')
+import { Decimal, objectEnumValues, makeStrictEnum, Public, getRuntime, skip } from './runtime/index-browser.js';
 
 
 const Prisma = {}
 
-exports.Prisma = Prisma
-exports.$Enums = {}
+const _Prisma = Prisma;
+export { _Prisma as Prisma };
+export const $Enums = {}
 
 /**
  * Prisma Client JS version: 6.10.1
@@ -113,14 +107,14 @@ Prisma.NullTypes = {
  * Enums
  */
 
-exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
+_Prisma.TransactionIsolationLevel = makeStrictEnum({
   ReadUncommitted: 'ReadUncommitted',
   ReadCommitted: 'ReadCommitted',
   RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 });
 
-exports.Prisma.UserScalarFieldEnum = {
+_Prisma.UserScalarFieldEnum = {
   id: 'id',
   username: 'username',
   password: 'password',
@@ -129,7 +123,7 @@ exports.Prisma.UserScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.ProjectScalarFieldEnum = {
+_Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   name: 'name',
   ownerId: 'ownerId',
@@ -137,7 +131,7 @@ exports.Prisma.ProjectScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.MembershipScalarFieldEnum = {
+_Prisma.MembershipScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   taskId: 'taskId',
@@ -145,7 +139,7 @@ exports.Prisma.MembershipScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.TaskScalarFieldEnum = {
+_Prisma.TaskScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
@@ -155,23 +149,23 @@ exports.Prisma.TaskScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
-exports.Prisma.SortOrder = {
+_Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
-exports.Prisma.QueryMode = {
+_Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
 
-exports.Prisma.NullsOrder = {
+_Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
 
 
-exports.Prisma.ModelName = {
+_Prisma.ModelName = {
   User: 'User',
   Project: 'Project',
   Membership: 'Membership',
@@ -205,6 +199,7 @@ If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-r
   }
 }
 
-exports.PrismaClient = PrismaClient
+const _PrismaClient = PrismaClient;
+export { _PrismaClient as PrismaClient };
 
 Object.assign(exports, Prisma)

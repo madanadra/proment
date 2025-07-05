@@ -1,4 +1,4 @@
-import prisma from "@/prisma"
+import prisma from "@/lib/prisma"
 import { NextRequest } from "next/server"
 import jwt from 'jsonwebtoken'
 

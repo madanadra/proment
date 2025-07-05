@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache"
 import { cookies } from 'next/headers'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import prisma from "./prisma"
+import prisma from "./lib/prisma"
 
 export async function sign_up(_: unknown, e: FormData) {
     const username = e.get('username') as string
