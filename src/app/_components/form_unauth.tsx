@@ -38,6 +38,7 @@ export default function FormUnauth({title, action, input}: Pick<Auth, 'title' | 
 
   return (
     <form action={formAction} className="grid gap-y-4">
+      {process.env.NEXT_PUBLIC_BASE_URL+'/api/check?token='}
         {input.map((item, i) =>
             <div key={i} className="grid gap-y-2">
                 <label className="text-sm font-semibold">{item.label}</label>

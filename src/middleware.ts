@@ -10,7 +10,7 @@ export async function middleware(req: NextRequest) {
 
     if (token) {
         try {
-            const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL+'/api/check?token='+token, {
+            const res = await fetch('http://localhost:3000/api/check?token='+token, {
                 cache: 'no-cache'
             })
 
@@ -63,5 +63,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|icon.ico|.*\\.svg).*)']
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg).*)']
 }
