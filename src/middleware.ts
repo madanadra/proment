@@ -10,7 +10,7 @@ export async function middleware(req: NextRequest) {
 
     if (token) {
         try {
-            const res = await fetch('http://localhost:3000/api/check?token='+token, {
+            const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL+'/api/check?token='+token, {
                 cache: 'no-cache'
             })
 
