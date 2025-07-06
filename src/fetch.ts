@@ -28,24 +28,24 @@ export async function sign_up(_: unknown, e: FormData) {
     }
 
     try {
-        const res = await prisma.user.findUnique({
+        const check = await prisma.user.findUnique({
             where: {
                 username: username
             }
         })
         
-        if (res) return {error: 'Username already exists.'}
+        if (check) return {error: 'Username already exists.'}
+
+        const hash = await bcrypt.hash(password, 10)
 
         const token = jwt.sign({username: username}, process.env.SECRET_KEY || '', {expiresIn: '7d'})
 
-        bcrypt.hash(password, 10, async (_err, hash) => {
-            await prisma.user.create({
-                data: {
-                    username: username,
-                    password: hash,
-                    token: token
-                }
-            })
+        await prisma.user.create({
+            data: {
+                username: username,
+                password: hash,
+                token: token
+            }
         })
 
         return {token: token}
