@@ -82,7 +82,7 @@ export default function CreateTask({id, isOwner}: {id: string, isOwner: boolean}
       <button onClick={() => setShow(true)} className="w-max rounded-sm text-gray-100 text-xs font-bold bg-gray-950 py-2 px-4 cursor-pointer">
         Create task
       </button>
-      <div onClick={() => setShow(false)} className={`${show ? 'grid' : 'hidden'} fixed inset-0 items-center bg-gray-950/50 p-4`}>
+      <div onClick={() => setShow(false)} className={`${show ? 'grid' : 'hidden'} fixed inset-0 items-center bg-gray-950/50 p-4 z-50`}>
         <form action={formAction} onClick={(e) => e.stopPropagation()} 
         className='grid gap-y-6 max-w-sm w-full rounded-sm bg-gray-50 border border-gray-300 p-4 mx-auto anim-modal'>
           <h1 className="text-lg">Create task</h1>
